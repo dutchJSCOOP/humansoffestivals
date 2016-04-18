@@ -1,0 +1,2867 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+"http://www.w3.org/TR/html4/strict.dtd">
+
+
+<html>
+
+
+<head>
+{% load staticfiles %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<title> Humans of Festivals </title>
+
+<meta name="description" content=" An inspiring collection of moving, interesting 
+	and sometimes just funny stories from all 
+	sorts of beautiful festival visitors around 
+	the Netherlands. ">
+<meta name="robots" content="NOODP">
+<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="{% static 'HOFapp/Logo_HOF2ico.ico' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'HOFapp/screenNoShadow.css' %}"
+  media="screen" />
+
+  
+
+<script src="{% static 'HOFapp/jquery-ui-1.11.4.custom/external/jquery/jquery.js' %}"></script>
+<script src="{% static 'HOFapp/jquery-ui-1.11.4.custom/jquery-ui.min.js' %}"></script>	
+
+	
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Bree+Serif' rel='stylesheet' type='text/css'>
+<script src="{% static  'HOFapp/isotope.pkgd.js' %}"></script>
+<script src="{% static  'HOFapp/imagesloaded.pkgd.js' %}"></script>
+
+</head>
+
+
+
+<body id="scroll" onload="isotope()" >
+<div id='wrapperbody'>
+
+<div id='headerbody'>
+
+<div id='navBar'>
+<span  id='aboutNav'class=' about navText'> about </span>
+<span  id='contactNav' class='contact navText'> contact </span>
+<a id='fbNav' href='https://www.facebook.com/humansoffestivals?fref=ts'><img src="{% static 'HOFapp/fbNavIcon.png' %}" height="25px"/></a>
+<a id='instaNav' href='https://instagram.com/humansoffestivals/'><img src="{% static 'HOFapp/instaNavIcon.png' %}" height="25px"/></a>
+</div>
+
+
+<script><!-- menu scripting -->
+$(document).ready(function(){
+
+	
+	//filter ISOTOPE 
+	$(".filterButton").click(function(){
+	
+		$("#container").isotope({ filter: '.dontFilter ,' + $(this).attr('filter-value') });
+		$(".filterButton").not($(this)).removeClass("filterActive");
+		$(this).addClass("filterActive");
+	});
+	
+	
+	// show filterlabel on filterbar hover
+	var timeout;
+	$('#filterBar').hover(
+		function(){
+			clearTimeout(timeout); //cancel the timeout if they hover off
+        // do stuff when hover off
+			$('#filterLabel').show("slide", { direction: "up" },100,"easeOutQuint");
+		},
+		function() {
+			timeout = setTimeout(function(){
+            // do stuff on hover
+				$('#filterLabel').hide("slide", { direction: "up" },100,"easeOutQuint");
+			}, 1000); //2 seconds
+		}
+		
+	);
+
+	
+	//animate about and contact page
+	$(".contact ").click(function () {
+		  $('#contactPage').show("drop", { direction: "up" }, 500,"easeOutQuad");
+		  $('#aboutPage').hide("slide", { direction: "right" },300,"easeOutQuad");
+    });
+	$("#exitContact,#closeContact").click(function () {
+		  $('#contactPage').hide("drop", { direction: "up" },300,"easeOutQuad");
+    });
+	
+	$(".about").click(function () {
+		  $('#aboutPage').show("slide", { direction: "right" }, 500,"easeOutQuad");
+		  $('#contactPage').hide("drop", { direction: "up" },300,"easeOutQuad");
+    });
+	$("#exitAbout,#closeAbout").click(function () {
+		  $('#aboutPage').hide("slide", { direction: "right" },300,"easeOutQuad");
+    });
+	
+	
+	//scroll down on downbutton click 
+   $('#downButton').click(function(){
+		$('body, html').animate({ scrollTop: "735px" },"slow","easeOutQuad");
+	});
+	 $('.goToTop').click(function(){
+		$('body, html').animate({ scrollTop: "735px" },"slow","easeOutQuad");
+	});
+	
+	//show/hide divs on scroll
+	var windowHeight = $('body').scrollTop();
+	
+	$(window).scroll(function(event){
+		if($(window).scrollTop() > 750 && !$("#container").hasClass('hasScrolled')){
+			$(".goToTop").fadeIn( "fast");
+		}else{if($(window).scrollTop() < 750){
+			$(".goToTop").fadeOut("fast");
+		
+		}};
+		if($(window).scrollTop() > 50 && !$("#container").hasClass('hasScrolled')){
+			$("#top_bar_background").show();
+			
+		}else{if($(window).scrollTop() < 50){
+			$("#top_bar_background").hide();
+		
+		}};
+	});
+
+	
+
+	// contact page click animations
+	$('.ref').click(function () {
+		
+		$('#ref' + $(this).attr('value')).hide();
+		$('#val' + $(this).attr('value')).show();
+		});
+	$('.val').click(function () {
+		$('#ref' + $(this).attr('value')).show();
+		$('#val' + $(this).attr('value')).hide();
+		});
+		
+	
+	
+	$("#container").imagesLoaded( showContainer());
+	
+
+
+});     
+ 
+ 
+</script>
+<script>
+	
+	function isotope() {
+  
+		$('#container').isotope({
+			itemSelector: '.item',
+			masonry: {
+				isFitWidth: true
+			}
+		});
+		
+	};
+
+	
+	
+	function showContainer(){
+		$("#container").isotope('layout');
+		$(".loading").fadeTo(500, 0, function(){
+		
+		$("#container").fadeTo("fast", 1);
+		
+		});
+		
+	};
+</script>
+
+
+
+<div class='header nav-down' id="top_bar">
+<div class='TopBarLogoContainer'>
+<img  id="top2" src="{% static 'HOFapp/LogoHOF2comp.png' %}" width="80px">
+</div>
+
+
+</div>
+
+<div class='header nav-down' id='top_bar_background'>
+<div class='TopBarLogoContainer'>
+<img  id="top" src="{% static 'HOFapp/LogoHOF2TopBar.png' %}" width="80px">
+</div>
+</div>
+<div class='header nav-down' id='top_bar_background_shadow'></div>
+</div>
+<div class="main">
+	
+
+	
+	<section id="block-one"  class="block">
+	
+	<div id='homeTextWrap'>
+	<span id="homeTitle"> Tell me Baby, <br/> What's Your Story? </span>
+	<span class='homeText'>
+	 An inspiring collection of moving, interesting 
+	and sometimes just funny stories from all 
+	sorts of beautiful festival visitors around 
+	the Netherlands.  </span>
+	
+	</div>
+
+	<div id='downbuttonContainer'>
+	<div id='downButton'  onclick="showDown()" alt="down"></div>
+	</div>
+	</section>
+	
+	
+
+	
+	<div id='contactPage'>
+	
+	
+	
+	<div id='contactWrap'>
+	<div id='exitContact'>close </div>
+	<div id='contactTitle'> Contact </div>
+	<div id='contactText'> 
+	
+	<div class='contactClick' ><div value='Write' class='ref' id='refWrite'>Write us</div><div value='Write' class='val' id='valWrite'> info@humansoffestivals.nl</div></div><br/>
+	<div class='contactClick' ><div value='Call' class='ref' id='refCall'>Call us</div><div value='Call' class='val' id='valCall'> +31&nbsp;681&nbsp;571&nbsp;275 </div></div><br/>
+	<div class='contactClick' ><div value='Visit' class='ref' id='refVisit'>Visit us</div><div value='Visit' class='val' id='valVisit'>  Asterweg 91 <br/> 1031 HM Amsterdam <br/> Netherlands</div></div>
+	
+	</div>
+	</div>
+	</div>
+	
+	<div id='aboutPage'>
+	
+	
+	
+	<div id='aboutWrap'>
+	<div  id='exitAbout'>close</div>
+	<div id='aboutTitle'> About us</div>
+	<div id='aboutText'> 
+	What about us? Please let us introduce ourselves. We're Jesse,
+	Tessa and Miran, three youngsters trying to figure out where to fit 
+	in in this world full of madness and hipsters. We're from the 
+	capital known for its weeds, hookers and festivals: Lovely 
+	Amsterdam. With a passion for writing and photography we're
+	inspired the humans of festivals. Ooh and we're inspired
+	by you too, yeah you.
+<br/><br/>
+ Festivals nowadays are all about integrity, as are the persons we
+ wish to portrait. You're more than welcome to meet the person 
+ behind the superficial. You're welcome to meet Humans of Festivals. 
+ So please, <br/><i> tell me baby, what's your story? </i>
+	</div>
+	</div>
+	
+	</div>
+	
+	<div class='loadingContainer'>
+	
+	<img class='loading' width='80px'style='margin-top: 20px'src="{% static 'HOFapp/gears.gif' %}"/>
+	<div class='loading'>  Loading... </div>
+	</div>
+	
+	
+	<div id='filterBar'>
+		<div id='filterLabel'> Filter Stories </div>
+		<div id='filterContainer'>
+			<a class='filterButton filterActive' filter-value='*' id='filterNone'> SHOW ALL </a>
+			<a class='filterButton' filter-value='.topstory' id='filterTopStory'> TOP STORIES </a>
+			
+		</div>
+	</div> 
+	
+	
+	<div id='container'  class=' pageContainer'>
+	
+
+	
+	<div class="storyContainer item dontFilter" id='festDiv'>
+	<div  class='storywrap '>
+	<div id='festDivTitle'>UPCOMING IN 2015</div>
+	<div class='storytextwrap' id='festDivText'>
+	<ul style="list-style-type:none">
+		<li><a class='festivalLink' href='https://www.facebook.com/events/648290115254561/'> Rollende keukens <span class='festDivDate'> 13-05 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/491115671026727/'>			Fierce Fashion Festival <span class='festDivDate'> 16-05 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/916691321708476/'>			Wicked Jazz Sounds <span class='festDivDate'> 16-05 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/thuishaven.am?fref=ts'> Thuishaven <span class='festDivDate'> 24-05 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/1080474708636211/?fref=ts'>			Open air amsterdam <span class='festDivDate'> 06-06 </span></a></li><br/>
+		<li><a class='festivalLink' href=''>															Berlijn <span class='festDivDate'> 11-06 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/1374930789492790/'> Zandbak Festival <span class='festDivDate'> 13-06 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/410632675756790/'>			All we want <span class='festDivDate'> 	03-07 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/928383437195574/'>			Verknipt Festival <span class='festDivDate'> 04-07 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/1543976729216688/'>			BuitenWesten <span class='festDivDate'> 18-07</span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/788394691254536/'>			Thuishaven op reis <span class='festDivDate'> 24-07 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/1529336827332351/'>			Amsterdam live on stage <span class='festDivDate'> 25-07 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/1567496840133075/'>			Damaris <span class='festDivDate'> 26-07 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/1535386156675539/'>			Gay pride <span class='festDivDate'> 31-07 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/271881219673983/'>			Sziget <span class='festDivDate'> 10-08 </span></a></li><br/>
+		<li><a class='festivalLink' href='https://www.facebook.com/events/1444159112542253/'>			Straf_Werk <span class='festDivDate'> 22-08 </span></a></li><br/>
+		<li><a class='festivalLink' style='border-bottom: 0px solid white; padding-bottom: 5px;' href='https://www.facebook.com/events/1629551180613232/'>			Wonderland <span class='festDivDate'> 29-08 </span></a></li><br/>
+	</ul>
+	</div></div></div>
+	
+
+
+
+
+
+
+
+
+
+	<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NEW STORIES HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+        
+{% for post in posts %}
+
+<div class="storyContainer item {{post.identifiers}}" >
+<div id='{{post.postID}}' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='{{post.facebookLink}}'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src='{{post.photo.url}}' /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> {{post.festivalName}}</span> <!-- HIER LOCATIE -->
+<span class='festdate'>{{post.festivalDate}} </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    {{post.text|linebreaksbr}}
+</div></div>
+<div class='storyfooter'>
+
+by {{post.poster}}</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+
+{% endfor %}
+		
+		
+		
+		
+<div class="storyContainer item " >
+<div id='Verknipt6' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./373262442884476/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/verknipt6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''You should just dance the way you want to! You always see a lot of people dancing like there are requirements on how to dance well. I don't look at those people. It fills me with joy when I see people dancing straight from their heart. Their body being controlled by the music, not others. I mean, dancing is a form of self-expression after all.''
+
+</div></div>
+<div class='storyfooter'>
+
+by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+<div class="storyContainer item " >     
+<div id='verknipt1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./372576772953043/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/verknipt1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''A few weeks ago I had a huge hangover and I had to do my last economics exam. But in the end it didn't matter at all because I passed it! I'm not sure this was a useful lesson for everyone who will read this, to be honest. Don't drink and study!''
+
+</div></div>
+<div class='storyfooter'>
+
+by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+<div class="storyContainer item " >
+<div id='Verknipt5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./372311112979609/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Verknipt5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''Look at all these lovely people around us. We met them by sitting in the pool since the start of the festival. Isn’t that lovely? Never forget that you can have a lot of fun with strangers, especially when you’re in a pool at a festival when it’s 34 degree Celsius. Care to join us?''
+
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+<div class="storyContainer item " >
+<div id='verknipt12' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./371752836368770/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/verknipt12.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''The boy next to me is my son. We love to spend quality time together. Today we chose to go to this festival. I think enjoying music and the great atmosphere together really make our ‘father and son’ relationship tighter. If I could give a tip to all fathers and sons, it would be ‘to be honest with each other’. It’s the foundation of every healthy relationship. Just be honest and open minded with each other.''
+
+</div></div>
+<div class='storyfooter'>
+<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %}"></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
+by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+
+<div class="storyContainer item topstory" >
+<div id='verknipt3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./371752836368770/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/verknipt3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''Someone once asked me what my mission in life is. At that moment I felt flattered because I realized that I do have a mission in life. Whenever I walk at a festival I try to give all the people I meet compliments and praise them about the things that make them unique. The one thing I always say to everyone is 'just keep smiling'. What's crazy is that now I actually get recognized at festivals and parties as the girl who always gives sweet compliments. I also get Facebook messages of people who give me lovely comments because my compliments made them happy. So I guess my mission is to make people smile and feel precious. Who doesn’t deserve to feel like that?''
+</div></div>
+<div class='storyfooter'>
+<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %}"></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
+by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+   
+<div class="storyContainer item " >    
+<div id='dezon6' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./358167031060684/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
+<span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''(Boy left): ''It probably was love at first sight and although we just met 2 weeks ago, it feels like we are going to last for a long time. I mean, look at his eyes..''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+<div class="storyContainer item " > 
+<div id='dezon9' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./357862337757820/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
+<span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''The thing that struck me, when I walked into this festival, were all the bra's that were hanging from the trees. I think I've must have left mine here the other week so I was searching for my bra and now I found it! Look at me, I'm fabulous''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+
+        
+    <div class="storyContainer item " >
+<div id='Chateau 5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/351336418410412/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='Chateau Techno'> LOCATIE/FEEST VAN DE STORY</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''Not many people know this about me but I was bullied in primary school. It was a really hard time for me because I felt hopeless and it affected me in many ways. Now that I'm older I realize that the biggest losers are the bullies themselves. Hurting other people just to get attention or feel better about yourself is wrong. The bullying made me mentally strong and I don't let people walk all over me. I fight for myself. Fuck all the sadness, let's dance!''
+
+        
+</div></div>
+<div class='storyfooter'>
+by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+<div class="storyContainer item " >
+<div id='Chateau 6' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/353185208225533/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Chateau Techno </span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''I'm an old man compared to all the kids here. I've been to many raves, warehouse parties and festivals in the time you probably weren't even born. The old school parties were the best with some rough acid and a high bpm, it's unfortunate that it's impossible to experience those parties again. So I'm making a statement with my shirt. BRING BACK THE ACID!''
+    
+</div></div>
+<div class='storyfooter'>
+by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+
+  <div class="storyContainer item topstory" >  
+<div id='Chateau 11' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/354352824775438/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 11.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Chateau 11</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''I think you may recognize me from the tv. I don't have anything special to say, but what I want to say is: always drink your beer because there is never enough beer''
+
+
+</div></div>
+<div class='storyfooter'>
+<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
+by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+
+    <div class="storyContainer item " >
+<div id='Chateau 10' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/355090991368288/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 10.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Chateau Techno </span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''One time I had this gig in the middle of the desert in Africa. For one week you don't have any internet, no money because nothing was for sale and the stages were incredible. The concept of the festival was very different compared to most festivals here in the Netherlands. Nobody threw their empty bottles on the floor but they all cleaned it and everyone was sharing everything. It was like this one big family. It was the best experience ever.''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+<div class="storyContainer item " >
+<div id='Chateau 12' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/356450221232365/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 12.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Chateau Techno</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''Many people know me because of my DJ career but I have some other talents that no one actually knows, or at least not many people do. For example, I can juggle really well. I wish I had some things to juggle and show you right now, I'm really proud of it. Besides my juggling skills and before my DJ career I was a good soccer player, I don't know if people actually know that. My football career ended because I started clubbing, drinking and meeting women. But I'm really happy where I am now!''
+
+</div></div>
+<div class='storyfooter'>
+by Mick van DijkT</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+<div class="storyContainer item " >
+<div id='Chateau 9' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/356471331230254/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Chateau Techno</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''I like to wear clothes that are really old. Like this shirt for example, it was from my father. There's a famous dutch singer on it André Hazes. I like wearing used clothes because they have a story. Imagine how many days at school, work or at parties my father wore this shirt and now I'm wearing it again for some new memories.''
+
+
+</div></div>
+<div class='storyfooter'>
+by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
+</div>   
+    
+    <div class="storyContainer item topstory" >
+<div id='Chateau 1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/356471724563548/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Chateau 1</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''I don't really have one word that describes me but I think the word 'creative' comes close. I think people prefer creativity as supposed to destruction and death so I create. I'm an artist so I do a lot of artwork. I got a friend who's got a big warehouse and we spray it with graffiti. No wait, I want to change the word that describes me. I am 'super creative'.''
+
+
+</div></div>
+<div class='storyfooter'>
+by Mick van Dijk </div> <!-- fix hier de naam van de foto maker -->
+</div>
+ 
+<div class="storyContainer item " >
+<div id='Chateau 7' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/359310270946360/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Chateau 7</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''Our ideal pizza is with a lot of tuna. Or wait, no, just a lot of fish. We want all fish pizza's. With tomato sauce and some cheese of course but we like fish.''
+
+
+</div></div>
+<div class='storyfooter'>
+by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
+</div>
+    
+<div class="storyContainer item " >
+<div id='Chateau 3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/359318874278833/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Chateau Techno</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''I know the people who organize this festival and they personally invited me to come and take a look. I always have been very curious about what happens at festivals nowadays. To be honest, it's not really my type of music, back in my days I listened to B.B. King, James Brown and more classical music. But I'm lucky I got this invitation, the fact that I'm getting the chance to see how things go around here is great.''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+    <div class="storyContainer item " >
+<div id='Zandbak2' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/362585370618850/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''Do you know what the most entertaining animals are? Snails. I remembered when I was a little girl I held snail races in the backyard with my little brother. We collected as many snails as we could find, placed them all in a row and waited which one was the fastest. In some kind of way this was always so much fun.''
+    
+</div></div>
+<div class='storyfooter'>
+
+by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
+</div>
+    
+    
+<div class="storyContainer item " >    
+<div id='Zandbak13' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/362934833917237/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak13.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''One day I was wearing this outfit at school and everybody said: ‘I found you!’ And since Zandbak Festival is focused on thinking back to the youth, I found myself in this very appropriate outfit. If you know Wally, you know exactly what I’m talking about. Glad you found me''
+    
+</div></div>
+<div class='storyfooter'>
+
+by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+<div class="storyContainer item " >
+<div id='Zandbak11' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/363080913902629/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak11.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''I’m a psychologist who works with horses. Normally when you visit a psychologist you just lie down on a couch like Freud invented, but I work with horses to find the core of the problem. The patients are asked to go into the outdoor riding area with a horse, then I tell them to do several assignments with the horse. For example to command the horse to walk next to them, or to sit on them. When the horse doesn’t obey the patient, normally the patient gets panicked or the frustration gets started. That’s when I come in and ask them if similar situations appear to the person in real life. So basically I compare the behavior of the horse with all day situations and then find a solution to the problem by reprogramming their reactions. So in short: I’m the horse-psychologist.''
+</div></div>
+<div class='storyfooter'>
+
+by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
+</div>
+    
+    
+<div class="storyContainer item " >
+<div id='Zandbak5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/363594267184627/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''This one time we went to Antwerp together. When we arrived at the station we wanted to take a picture in a photobooth. When we inserted our money into the machine we heard there was a bomb threat at the station. But we needed to have our photo taken because we already paid for it, you don’t half know how scared we were at that moment. Just when the photbooth took the picture a policeman came, pulling away the curtain. He told us that we had to get out of there as soon as possible. Eventually there turned out to be nothing wrong, but now we have that cool photo as a souvenir from this weird adventure.''
+
+</div></div>
+<div class='storyfooter'>
+
+by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+
+<div class="storyContainer item topstory" >
+<div id='Zandbak19' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/363692600508127/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak19.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''(girl on the left) We’re in the middle of our exams and studying should be our top-priority right now. But a lot has happend in the past few months. My dog passed away recently and my English granddad passed away a week ago. And this girl right here is helping me cope with everything. And I love her for it. We are a dream team!" 
+'(girl on the right) She needs some distraction so thats why I dragged her here. This is what best friends are for, helping each other out in times of need. So even though bad things are happening, we have to take some time to focus on the nice things and let ourselves go instead of focussing on all the sadness that's going on. And I think this festival, where we can just play around as kids, is exactly what she needs.''
+
+
+</div></div>
+<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
+<div class='storyfooter'>
+
+by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
+</div>
+    
+    
+<div class="storyContainer item " >
+<div id='Zandbak4' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/363692600508127/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''Back in the days we used to play sooo much Sims. It's the best game there is! And how awesome is it, that now we are just walking around as non-virtual sims in real life!''
+
+</div></div>
+<div class='storyfooter'>
+
+by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+<div class="storyContainer item " >
+<div id='Zandbak20' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/364375453773175/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak20.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''Do you want to be my Mickey?''
+ 
+</div></div>
+<div class='storyfooter'>
+
+by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+<div class="storyContainer item " >
+<div id='Zandbak1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/365441813666539/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''When I was at the age of five I walked through a flea market with my granddad. We found a wooden cross and bought it for almost nothing. I was playing with it when the cross opened and a bone fell out of it. We went to an antique shop with it and it seemed to be a real bone of Saint Anthony. It was unbelievable. we bought it for around five euros at a market and then this thing was worth more than 7000 euros!!''
+ 
+</div></div>
+<div class='storyfooter'>
+
+by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+    
+<div class="storyContainer item " >
+<div id='Zandbak6' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/365924686951585/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''My uncle used to be radio-piet. When we celebrated Sinterklaas with the whole family, around 20 people, he would record something for all the children and we used to dance to the songs he played. I’ve taken over his job but transformed it into video-Piet. Before Sinterklaas I’ll go by all the houses and film it. Then I dance with the children and when it is Sinterklaas we broadcast all the videos pretend that it’s live. Everything for a good Sinterklaas.''
+
+ 
+</div></div>
+<div class='storyfooter'>
+
+by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
+</div>
+    
+    
+<div class="storyContainer item " >
+<div id='Zandbak22' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/368096630067724/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak22.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''Let me tell a anecdote about my first date with Jonathan. We hitchhiked to Paleis Soesdijk for a exposition of Escher, but when we arrived it was hard to find the entrance. Rebellious as we are (ahum) we decided to climb over the fences, but it didn’t take long before a guard caught us. He said that we we were lucky that we didn’t get bitten by the dogs behind the fences. When we had to walk out of the exit and bought a new ticket, the woman behind the ticketsale didn’t even look surprised. ‘Just another day at this weird office…''
+
+ 
+</div></div>
+<div class='storyfooter'>
+
+by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+
+<div class="storyContainer item " >
+<div id='Zandbak9' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/369493093261411/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''I grew up in Curacao, I came to the Netherlands in my teenage years. The biggest difference? Everyone in Curacao is just very relaxed, not stressing about anything and you know what? The fruit over there is great! We have thousands different sorts of fruit and it's so delicious.''
+
+ 
+</div></div>
+<div class='storyfooter'>
+
+by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+
+<div class="storyContainer item " >
+<div id='Zandbak7' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/370064653204255/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''I'm the most techy girl on this festival I guess, my home is filled with electronics, vinyl and spinning records. It even drives my boyfriend crazy, but hey let a girl have her toys right? And you just missed my gig dude, my set ended like five minutes ago...''
+ 
+</div></div>
+<div class='storyfooter'>
+
+by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+<div class="storyContainer item " >
+<div id='OpenAir5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/361489864061734/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/OpenAir5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Amsterdam Open Air</span> <!-- HIER LOCATIE -->
+<span class='festdate'> 06-06-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+''A few years ago I was in New York. I remember this one night I was so drunk I managed to move a bench to the middle of the crowded street. At that moment the police saw what I was doing and I ended up in jail. In New York... Really?''
+
+ 
+</div></div>
+<div class='storyfooter'>
+
+by Thuynga Phan</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+       <div class="storyContainer item topstory" >
+<div id='dezon8' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./357604887783565/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon8.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
+<span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''We were at AfricaBurn last year and that's where our outfits are inspired from. Yes, we are a couple but not a normal couple. We've been together for 1,5 years and I think the reason we're still in love is we're both crazy and make a lot of fun together. We always get into weird adventures and what better way to experience those with the love of your life!''
+    
+    
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+  <div class="storyContainer item " >      
+<div id='dezon2' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./356040171273370/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
+<span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''I'm a lucky guy. I'm hosting my own stage today. Can u see the pride on my face?''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+       
+        
+        
+        
+        
+    
+<div class="storyContainer item topstory" >
+<div id='dezon3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444937271./356398247904229/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
+<span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''I was going for a run when I discovered this amazing spot next to a lake in Amsterdam. At this moment I was listening to the song 'F - Wat Een Leventje'. Then I realized how happy and free I have become. Despite all the wrong choices I made and the insecurities I have, I came at the point in my life where I am the happiest I have ever been. I'm grateful I had this moment of luck, but also for everything in my life. Even though there are good and bad moments: what a life!''
+
+
+
+</div></div>
+<div class='storyfooter'>
+<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+        
+        
+  <div class="storyContainer item " >  
+<div id='dezon1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./355759381301449/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
+<span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    (Girl at the right): ''We've all met each other at school and it was the best thing that happened to me actually. We're like four sisters'' <br/>
+(Girl left to her): ''I couldn't imagine better friends. We laugh together, party together and even cry together without any judgement. I can be myself and they totally accept me this way'' <br/>
+(Girl at the left): ''And it's girls only. We fully understand each other and don't want any boy drama to get in between us. I think this is wat keeps us strong haha'' <br/>
+(Girl right to her): ''I don't even know what to say, I think it's obvious we're a perfect match together!''
+ antwoord ) <br/>
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+   <div class="storyContainer item " >     
+<div id='WickedJazz7' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444485420./356470237897030/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Wicked Jazz Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''When I was around the age of 18 we got our backpacks and went to Italy. During our trip we met a trumpest player named Noël from New Orleans. He told us that there was a jazz festival in Perugia. Since we are the biggest jazz fans we naturally joined. There was a big jazz scene in Perugia and Noël introduced us to all big jazz musicians, he knew al them because he had classes with the teacher of Bobby Mcferrin, who is a famous jazz singer. In our time that was booming. And that's how we rolled into the Jazz scene. It was a great Jazzy time!''
+
+    
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+      
+        
+        
+        
+ <div class="storyContainer item " >       
+<div id='WickedJazz3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./356470101230377/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Wicked Jazz festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''My son was already into music since he was 4 years old. He played the piano until he was 10. Then he decided to play drums, but we didn't have a drumkit. The fun thing is he was also very good at juggling, so he made money with juggling and saved for a drumkit. And that's when he started playing the drums for a very long time. People always told him he also had a really good voice and that he should combine his talents. That's how he ended up at the Conservatorium here in Amsterdam. 
+For me it is amazing to see how he uses his talents to make this kind of music and I'm truly proud. In the future I really want to make music with my son. That would be a dream becoming true.''
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+
+        
+        
+        
+        
+        <div class="storyContainer item topstory" >
+<div id='WickedJazz5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./355940474616673/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Wicked Jazz festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    
+    ''I met my ex-girlfriend on Sziget. During my relationship she suddenly called me during my work. She told me to come to her house after work and when I arrived I had to sit down and look at a slideshow of my dad. It turned out that my dad had a relationship with her mother for more than 2 years and they had even lived together. That was just weird as shit to us.''
+
+
+</div></div>
+<div class='storyfooter'>
+<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+  <div class="storyContainer item " > 
+<div id='WickedJazz2' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./355091228034931/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Wicked Jazz festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''On the 1st of April, I was at work when I got a call from the police. They told me that they found a naked man in my house and that he had shaved his head on the balcony while he was just thinking about taking a shower. I didn't believe anything they said because it was the 1st of April. Eventually the whole situation appeared to be true. The man climbed on the roofs and came in through the back door. He shaved his head on my balcony and left his underwear downstairs. At that moment the police found the man in my house and luckily could bring him outside.''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+   <div class="storyContainer item " >     
+<div id='WickedJazz1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./354862004724520/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Wicked Jazz festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''I always had affinity with music. A few years ago I was dealing with depression. For more than one year I didn't know what I wanted to do with my life. I went to the psychiatrist and eventually made the decision to dedicate my life to the thing I love most, music. Which was actually really scary.''
+'Why was it scary?'
+"Because it's not something I would normally do. Normally I would never choose to do something I can't control. Everyone always told me that a music career is unstable and you can never rely on it. But I'm still proud of my decision.''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+        
+        
+  <div class="storyContainer item " >     
+<div id='WickedJazz4' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./351332675077453/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Wicked Jazz Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+''What do you want to be if you could be an animal?'' <br/>
+''A DRAGON!'' <br/>
+''Why?'' <br/>
+''Boy left: because he can pound!'' <br/>
+''Boy right: and he has big teeth.'' <br/>
+
+    
+</div></div>
+<div class='storyfooter'>
+
+by Wicked Jazz Festival</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+        
+   <div class="storyContainer item " > 
+<div id='Vrijland15' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./350934811783906/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland15.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''On my 19th birthday we went to Vondelpark in the middle of the night. We went skinnydipping with only our panties on. Not much later the police drove by, they just laughed at us, but did nothing. Eventually we had to be more scared of the things floating in the water than for the police. For the people who don't know Vondelpark, there's always a shiItoad of trash in the water. But it was one of the most exciting things I've ever done. We decided to make it a tradition, so in 1,5 month we have to go skinny-dipping again.''
+
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+        
+        
+   <div class="storyContainer item " >    
+<div id='Vrijland9' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./349433441934043/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''The three of us are Love Triangle, based on three equally divided corners of the triangle. To us, love means connecting. It's what our brotherhood is based on and what makes it stronger. That's also what I experienced when we're on stage. We try to carry out our love for music to a broader audience and by that moving away from planned switches behind the booth. 
+When we're performing our set everything is purely done by feeling. Even when it's time to switch. Love is a feeling, you cannot plan it or put it in a box. It's just the same as music.''
+    
+</div></div>
+<div class='storyfooter'>
+
+by Vrijland</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+        
+    <div class="storyContainer item " >    
+<div id='Vrijland8' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./349423465268374/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland8.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''We came early to catch up and spent some alone time together. Our friends will arrive later because of the bad weather, but we think that's for pussy's. Rain doesn't kill you, it only makes you wet.''
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+ <div class="storyContainer item " >     
+<div id='Vrijland4' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./348578605352860/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''We're from Mrs. Mokum and we have an platform for local talent, and by talent we mean like literally everything. From writing, to singing to dancing, we're open for every artistic aspect you can think of. Today we have a couple of songwriters in our caravan who will an opportunity to publicly play their sons. Cause by all means, there's so much talent out there, it's a shame that they don't have an stage to perform on.''
+
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+        
+ <div class="storyContainer item " >       
+<div id='Vrijland3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./348423368701717/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''He's a big whore you know, like a hooker. He likes to take care of the boys and I take care of the girls. We just like to entertain people at festivals, that's why I have this pistol filled with Jagermeister, it makes you horny. Would you like some?''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+        
+        
+        
+        
+ <div class="storyContainer item " >       
+<div id='Vrijland2' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./348423368701717/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+''I actually want to say something! When I arrived at this festival, the first thing I noticed was that the people are dressed too boring. I mean it's Liberationday, where are all the colours? People need to dress up more, because you can never be overdressed. Never.''
+
+
+</div></div>
+<div class='storyfooter'>
+
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+        
+
+        
+        
+        
+        
+        
+               <div class="storyContainer item topstory" >
+<div id='Vrijland1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./348103482067039/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<div class='storyinfo'>
+<span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
+<span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
+<div class='storytextwrap'>
+
+    ''Freedom is our greatest good and we should be grateful that we can celebrate it at a festival like this one. I think it's important that everybody can wear whatever they want, act how they want and can have different sexual orientation without being judged. Amsterdam is known for it's open minded culture where all of these aspects are naturalised within the society. Yesterday we had the chance to memorialize, and today we have the chance to enjoy it.''
+
+
+</div></div>
+<div class='storyfooter'>
+    <img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
+by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
+</div>
+
+        
+        
+        
+        
+	<div class="storyContainer item" > 
+	<div id='Zandbak2comp.jpg' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+	<a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/362585370618850/?type=1&theater'> <!-- copy paste hier je fb linkje -->
+	<img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/Zandbak2comp.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+	<div class='storyinfo'>
+	<span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
+	<span class='festdate'>13-06-15 </span> </div> <!-- HIER DATUM -->
+	<div class='storytextwrap'>
+	
+	''Do you know what the most entertaining animals are? Snails. I remembered when I was a little girl I held snail races in the backyard with my little brother. We collected as many snails as we could find, placed them all in a row and waited which one was the fastest. In some kind of way this was always so much fun.''
+
+
+
+	</div></div>
+	<div class='storyfooter'>
+	
+	by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
+	</div>
+
+
+
+
+
+
+	<div class="storyContainer item topstory" >
+	<div id='defik1' class='storywrap '>
+	<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430561910./342689899275064/?type=1&theater'>
+	<img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/defik1.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Secret Location </span> 
+	<span class='festdate'>12-04-15  </span> </div>
+	<div class='storytextwrap'>
+	
+	''Our organization 'De Fik ' started ten years ago. We played in various squats with 
+	the punk band I was in, but we also did a lot of other things during that time. From
+	funerals to celebrations for children and even organizing a circus. It's super diverse 
+	what we do but at the end of the time we just want to give people a good time. Every 
+	weekend we had around 3-11 parties so sometimes it was very hectic. Not to forget that
+	the people who work with us are all volunteers. Now during these years we met people
+	who showed us more sides of music and parties. The greatest thing about 'De Fik' is 
+	that after ten years it still exists, we're unique and I'm proud to be a part of it.
+	Turn your sound system on and throw an (illegal) rave! This generation needs it.
+	</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img> 
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL1' class='storywrap '>
+	<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430562245./337943149749739/?type=3&theater'>
+	<img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL1.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL Festival </span> 
+	<span class='festdate'>04-04-15  </span> </div>
+	<div class='storytextwrap'>
+	
+	''Traveling is something I love. I lived in Australia for one year and a few 
+	weeks ago I went to Brazil, I experienced some crazy shit there. Once a year 
+	they celebrate carnaval and I was lucky to actually be a part of the festivities 
+	rather then seeing it on television. I did have one bad experience though, we
+	were in Paraty which is a really small city in Brazil and we went to a place
+	where we shouldn't go because people told us it was dangerous. When we were 
+	looking out of the window we saw a car with machine guns pumping out of the car. 
+	I started panicking and felt really uncomfortable. It probably was a sort of a 
+	gang of a drug maffia. They didn't do anything to me but with my blond hair I was 
+	scared because I was afraid it might stand out between all the typical Brazilian girls.''
+	</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL3' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430562245./338534499690604/?type=3&permPage=1">
+	<img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL3.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>04-04-15   </span> </div>
+	<div class='storytextwrap'>
+	''Hey! You're the guy from....'' <br/>
+	'Yeah, Fear and Loathing'
+	</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL5' class='storywrap '>
+	<a href="
+	https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430562245./342401132637274/?type=3&theater
+	"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL4.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>04-04-15   </span> </div>
+	<div class='storytextwrap'>
+	''A few years ago I was in Marmaris with a friend of mine. After a 
+	night of heavy drinking we decided to go skinny dipping with two girls. 
+	We went into the water half naked and we persuaded the girls to kiss 
+	with each other. At the moment their lips touched, we heard gunshots 
+	coming from the shore. It scared the shit out of all of us. Eventually 
+	it turned out to be a huge fight between Fenerbahçe and Galatasaray fans, 
+	which are two big soccer teams in Turkey. ''
+	</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL6' class='storywrap '>
+	<a href="
+	https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430562245./343083125902408/?type=3&theater
+	"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL6.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>04-04-15   </span> </div>
+	<div class='storytextwrap'>
+	''We may be grown ups, but we're always hopping around and calling each 
+	other glitterponies. Because we're so glittery our personality is just
+	shining all day! And when the ponies meet each other we always say hinnik. 
+	Sorry, this really is our best story.''
+	</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL7' class='storywrap '>
+	<a href="
+https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430562245./344287405781980/?type=3&theater 
+	"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL7.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>04-04-15   </span> </div>
+	<div class='storytextwrap'>
+	''We're like the typical English tourists wandering around at festivals. 
+	Drinking beer for breakfast and wearing shorts because we're on holiday.
+	I don't care whether it is 9 degrees outside, I'm on fuckin' vacation so 
+	my pants are short and I will enjoy it, that's the mindstate.<br/>
+	'But what's up with your friends butt tattoo?'<br/>
+	''He thought it would be funny if he tattooed 'Tesco' at his right butt-half, 
+	how hilarious is that. For your info, Tesco is an supermarket in the UK. So
+	in comparison it would be the same when a Dutch citizen would have had
+	'Albert Heijn' tattooed on his butt.''
+	</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL8' class='storywrap '>
+	<a href="
+https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430562245./346407302236657/?type=3&theater
+	"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL8.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>04-04-15   </span> </div>
+	<div class='storytextwrap'>
+	''As a child we had these awesome schooltrips every year. In the first grade we went to Assen and 
+	my whole class was already in the bus, so naturally I wanted to get in as well. But my mom stopped me.
+	She told me that I wasn't allowed to go, I still have no idea why she said that. Anyway, as the bus was 
+	driving away I waved at them and in my enthusiasm I walked head first into an stoppingsign. I cried for 
+	hours and even icecreams couldn't heal my wounds. Moral of the story: Just smile and wave boys, smile and wave.''
+	</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL9' class='storywrap '>
+	<a href="
+https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430562245./346117452265642/?type=3&theater
+	"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL9.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>04-04-15   </span> </div>
+	<div class='storytextwrap'>
+	''You know what's fun about the Dutch festivals? I can dress and act like a cow and no one fucking cares.''
+	</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	<div class="storyContainer item" >
+	<div id='IMG_9893' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./341689956041725/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/IMG_9893.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>04-04-15   </span> </div>
+	<div class='storytextwrap'>
+	''We're the greatest couple. We met while traveling on a festival 
+	in Gen&egrave;ve and now we're traveling to as many festivals as we can 
+	together. We found love by doing the things we love. I mean we're 
+	in Amsterdam during an amazing festival and even sharing fries!''</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	<!---->
+	
+	<div class="storyContainer item topstory" >
+	<div id='DGTL13' class='storywrap '>
+	<a href="
+	https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./340054202871967/?type=3&theater
+	"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL13.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>05-04-15   </span> </div>
+	<div class='storytextwrap'>
+''I was at the festival yesterday and lost my phone. So now I'm here to pick it 
+
+up before going to work. It's really fucked up because the vibe and music 
+
+today is great and I have to leave for work in the city straightaway. Thank god 
+
+someone found it and was decent enough to give it to the lost & found. 
+
+Whoever it was, I love you man!''</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL14' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./339465859597468/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL14.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>05-04-15  </span> </div>
+	<div class='storytextwrap'>
+	''Saw him walking in Music College of Leeds and we had some mutual friends. 
+
+He likes the music I make and since I'm getting booked for a lot of 
+
+international gigs these days I thought why not bring him to one of my gigs?''</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='DGTL15' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./337263943150993/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL15.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>05-04-15   </span> </div>
+	<div class='storytextwrap'>
+	''I got this tattoo when I was in Cuba. It's a palmtree with leaves in the shape 
+
+of the earth. I've lived in Dominican republic for a year and in Argentina for 
+
+seven months. It's my tribute to the wonderful world we live in. ''Pachamama'' 
+
+means mother earth in Argentinian Spanish and refers to the connection 
+
+between humanity, nature and culture. The people there throw one sip of their 
+
+alcoholic drinks on the ground and say ''para Pachamama'' to respect mother 
+
+earth. I share the same philosophy and respect Pachamama just as much as 
+
+they do.''</div></div>
+	<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item topstory" >
+	<div id='DGTL16' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./336825756528145/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL16.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>04-04-15   </span> </div>
+	<div class='storytextwrap'>
+	'' I'm 21 years old and studying biomedical science in Hamburg, which means 
+
+I'm dealing with 3-D printed organs and cells and stuff like that. I'm glad we 
+
+can use nowadays technology to save human lives. I mean Twitter and stuff 
+
+are cool, but in fact it's pretty useless. So now I'm just enjoying life, smoking 
+
+weed and drinking beer. And hopefully I'll be somewhere I belong in the near 
+
+future. Otherwise, fuck it.''</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item topstory" >
+	<div id='DGTL17' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./338906229653431/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/DGTL17.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>DGTL festival </span> 
+	<span class='festdate'>05-04-15   </span> </div>
+	<div class='storytextwrap'>
+	"Mother: I'm actually not alone. I came here with my three sons to enjoy the 
+
+music and the lovely people. You see, one of my sons works for this event."
+
+'Son with hat: I'm the booker of DGTL and my mom was curious what my job 
+
+was about, so I thought I'll just show her at the festival.'
+
+'Son right: And how awesome is it that she still comes with us. I mean, which 
+
+mother does that nowadays?''</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	<div class="storyContainer item " >
+	<div id='Liefhebbers1' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./343719269172127/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/Liefhebbers1.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Lotgenoten Liefhebbers </span> 
+	<span class='festdate'>18-04-15 </span> </div>
+	<div class='storytextwrap'>
+	''My girlfriend and I choose eachothers clothes from time to time and tonight 
+
+she picked my outfit. These pants are actually a gift from me to her, only she 
+
+made me wear it tonight. Dressing up is the shit but it can also kill you. One 
+
+time we were in the suburbs of LA dressed up for a party in Las Vegas when 
+
+we heard shooting. The neighbours ran to us and said that we needed to get 
+
+the hell out of there with our crazy outfits, it could have had us killed. But 
+
+yeah, we're still alive and now I'm rocking my girlfriends legging.''</div></div>
+	<div class='storyfooter'>
+	by Thuygna Phan</div>
+	</div>
+	
+	
+	
+	
+	<div class="storyContainer item topstory" >
+	<div id='liefhebbers2' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./341689956041725/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/liefhebbers2.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Lotgenoten liefhebbers </span> 
+	<span class='festdate'>18-04-15  </span> </div>
+	<div class='storytextwrap'>
+	"Sometimes security searches my afro for drugs and weapons."</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Loek Hennipman</div>
+	</div>
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='liefhebbers3' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1430772817./347443902132997/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/liefhebbers3.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Lotgenoten liefhebbers </span> 
+	<span class='festdate'>18-04-15   </span> </div>
+	<div class='storytextwrap'>
+	"I was in Kaapstad doing some modeling work. I became friends with a girl 
+
+who was also working at the same agency. We came up with the idea to walk 
+
+around the city. We were the only girls on the street and a creepy local 
+
+approached us. He asked us where we were from and we felt a really bad 
+
+vibe, so we decided to ignore him and keep on walking. He started following 
+
+us and all of a sudden he stood in front of us and showed his gun. A real 
+
+motherfucking gun. He said if we didn't follow him he would use it so we were 
+
+scared to death. I panicked so I thought that the best thing to do was to just 
+
+obey him and see what happens next but my friend was really smart and 
+
+started talking with him about where he was from and what he does for a 
+
+living. She did this to emphasize the fact that we are all just humans and that 
+
+he would realize that what he is doing is wrong. While we were walking I saw 
+
+a tuk-tuk driving in the distance. Our whole trip we were being transported with 
+
+a tuk-tuk by different drivers but I recognized the driver from far away. He saw 
+
+us walking with this big man so he knew something was up. He drove up to us 
+
+and as he made eye contact with us we ran up to the tuk-tuk and drove away. 
+
+Imagine what could have happend if our tuk-tuk hero didn't drive by."</div></div>
+	<div class='storyfooter'>
+	by Loek Hennipman</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='liefhebbers2' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430772817./347443902132997/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/liefhebbers4.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Lotgenoten liefhebbers </span> 
+	<span class='festdate'>18-04-15  </span> </div>
+	<div class='storytextwrap'>
+''Once I was at a warehouse party and I was totally shit faced. I fell asleep at 
+
+the toilet with my pants down my ankles and my head against the door. When 
+
+I woke up around 11 in the morning it was very quiet, everyone was gone 
+
+even the organization of the party. It became clear that the party was finished 
+
+a long time ago. The only option was to climb through the window, which I did. 
+
+Eventually I had to walk to home in only a t-shirt. It was definitely a 'wtf' 
+
+moment.''</div></div>
+	<div class='storyfooter'>
+	
+	by Loek Hennipman</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item topstory" >
+	<div id='liefhebbers2' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./265182183692503/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/leila.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Thuishaven </span> 
+	<span class='festdate'>24-08-14  </span> </div>
+	<div class='storytextwrap'>
+	''I'm half Moroccan. The first time I went to Morocco I was twelve years 
+
+old. In Morocco they normally check every bag at the airport, they are 
+
+just really strict with everything. When we had to show our passports 
+
+the security guard really took his time to check the passports and even 
+
+asked another guard to come. We didn't know why. They were just 
+
+mumbling to each other. He said we could come to the side and pass 
+
+the security, without even checking our bags. I was terrified and all kind 
+
+of doom scenarios popped up into my head.
+
+Finally we found out why we could pass without going through security. 
+
+Apparently, we had the same name as the prince of Morocco, they 
+
+thought we were family of the prince or at least had blue blood. I never 
+
+realized how important the King's house was Morocco. And how special 
+
+my last name is in this beautiful country.''</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	<div class="storyContainer item topstory" >
+	<div id='ruben' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./264419747102080/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/ruben.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Thuishaven </span> 
+	<span class='festdate'>24-08-14  </span> </div>
+	<div class='storytextwrap'>
+	''Not long ago I was going to a friend's place. When I got there, the door 
+
+was unlocked so I got in. I heard many people talking and laughter 
+
+coming from the living room so I figured she had visitors over, but as 
+
+soon as I walked in it suddenly got silent and a large group of people 
+
+whom I had never seen before in my life stared at me with expressions 
+
+on their faces that said ''who the hell is this guy?''. I stood there 
+
+awkwardly in a state of total mindfuck for what felt like eternity until I 
+
+realised I had just walked into the house of a random family and had 
+
+interrupted their family dinner; my friend lives a bit further up the street 
+
+in a similar house.
+
+My first reaction was to blurt out ''SHIT, WRONG HOUSE'', after which I 
+
+turned around and got my ass out of the house as fast as I could, 
+
+leaving the family behind in confusion. Definitely scores high on my list 
+
+of awkwardest situations I've been in so far.''</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='francedreads' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./264417953768926/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/francedreads.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Sziget Festival </span> 
+	<span class='festdate'>10-08-14 </span> </div>
+	<div class='storytextwrap'>
+''My English is very bad but I do want to help you guys and tell you a 
+
+story. This festival is a break in our trip, we are lifting through Europe. 
+
+Our next stop is Croatia.''</div></div>
+	<div class='storyfooter'>
+
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	<div class="storyContainer item " >
+	<div id='jesselely' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./257366667807388/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/jesselely.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Thuishaven </span> 
+	<span class='festdate'>24-08-14  </span> </div>
+	<div class='storytextwrap'>
+	''After about 2 months of traveling in Australia, my friend and I got a lift 
+
+from Perth to Darwin. This tour went through the middle of nowhere. 
+
+The following day we decided to drive offroad. After 500 kilometers of 
+
+driving we ended in a severe car accident. Luckily, everybody survived 
+
+the accident. Because of the help of people we could get back to 
+
+civilization. At that moment I couldn't think of one reason why I was 
+
+here. Eventually we decided to go on with our trip but because of 
+
+money problems we couldn't afford a bustrip. We had to lift again. This 
+
+couple from New-Zealand brought us to a beautiful place on the coast. 
+
+While I was snorkeling I spotted a sea turtle, I followed the turtle for a 
+
+while and it made me realize that the little things in life can be very 
+
+important, you have to get everything out of it and enjoy it to the fullest.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='jurkman' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./256456704565051/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/jurkman.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Sziget Festival </span> 
+	<span class='festdate'>10-08-14  </span> </div>
+	<div class='storytextwrap'>
+	''Why are you wearing a dress, did you lose a bet?''
+	<br/>
+''No, just because it fits well and it looks nice. I actually went to the thrift 
+<br/>
+shop and bought 8 dresses for this week'' 
+<br/>
+''So you wear dresses everyday?''
+<br/>
+''Yes, it is called Island of Freedom right? So, why not..''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='scottish' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./253868554823866/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/scottish.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Sziget Festival </span> 
+	<span class='festdate'>10-08-14</span> </div>
+	<div class='storytextwrap'>
+	''We moved from Scotland to England, because there is more work for 
+
+me. Finally we saved enough money to make a Europe trip. So we're 
+
+enjoying it more than ever.'' 
+<br/>
+''So how did you come to the idea to visit Sziget Festival?''
+<br/>
+''This little boy wanted to go to a rock festival in France for three days. I 
+
+though that was a bit too much. So I promised him to come here for one 
+
+day, right kid?''
+<br/>
+''Yes and I'm really looking forward to Calvin Harris.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='3asians' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./251646858379369/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/3asians.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Dekmantel </span> 
+	<span class='festdate'>03-08-15  </span> </div>
+	<div class='storytextwrap'>
+	"We just met this boy on the left in the train. We were going to the same 
+
+festival"
+<br/>
+"Yeah they did! I just came alone."
+<br/>
+"Now you're not alone, now you're with us!"</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='zonnebrilmeisje' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./250937341783654/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/zonnebrilmeisje.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Dekmantel </span> 
+	<span class='festdate'>03-08-15  </span> </div>
+	<div class='storytextwrap'>
+	''I think the most important thing of people in general is that everyone 
+
+needs to be true to themselves. A lot of people these days are just 
+
+extremely afraid to express themselves and when they see people that 
+
+are brave enough they just feel intimidated and start being aggressive 
+
+or degrading. It's sad but I know deep down they are all just jealous. I'm 
+
+really tired by the way because I had to host this party all night long and 
+
+just came straight to this festival. Does my lipgloss look good?''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='birthdaygirl' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./250703658473689/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/birthdaygirl.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Dekmantel</span> 
+	<span class='festdate'>03-08-15  </span> </div>
+	<div class='storytextwrap'>
+	"IT'S MY BIRTHDAY"</div></div>
+	<div class='storyfooter'>
+
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='bloemshirt' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./250163978527657/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/bloemshirt.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Welcome to the future </span> 
+	<span class='festdate'>26-07-14  </span> </div>
+	<div class='storytextwrap'>
+	''Tell me something special.''
+<br/>
+''Today is my one year anniversary with my boyfriend. That's what I find 
+
+kind of special.'</div></div>
+<div class='storyfooter'>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='noshave' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./249581421919246/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/noshave.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Buiten Westen </span> 
+	<span class='festdate'>18-07-14  </span> </div>
+	<div class='storytextwrap'>
+	''I actually shaved this morning.''</div></div>
+	<div class='storyfooter'>
+
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='IMG_9760' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./248604202016968/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/IMG_9760.JPG' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Welcome to the future</span> 
+	<span class='festdate'>26-07-14 </span> </div>
+	<div class='storytextwrap'>
+	'''Welcome To The Future.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	<div class="storyContainer item topstory" >
+	<div id='fotomeisje' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./248603442017044/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/fotomeisje.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Welcome to the future</span> 
+	<span class='festdate'>26-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''This is my best friend. She was supposed to be here right now but she 
+
+sold her ticket. Because I wanted her to come, I took this picture of her 
+
+with me. So now she's still kind of here.''</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='jessegirl' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./248371075373614/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/jessegirl.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Welcome to the future</span> 
+	<span class='festdate'>26-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''Heee! You're Jesse right?''
+<br/>
+''Eh.. yes.'' 
+<br/>
+''I know you from Liefhebbers.''
+<br/>
+''Oh no. I wasn't there''
+<br/>
+''Really?! Than you look exactly like a guy I met, his name was also 
+
+Jesse. Ooh, you've got a camera? Can you please take a picture of 
+
+me?''</div></div>
+	<div class='storyfooter'>
+	
+	by Jesse Moes</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item topstory" >
+	<div id='3girls' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./248147015396020/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/3girls.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Welcome to the future</span> 
+	<span class='festdate'>26-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''We have these flowers in honor of our dear friend Regis. Who passed 
+
+away last week. He was on flight MH17 heading towards Bali. We want 
+
+to say so many things to him and we know he's dancing with us right 
+
+now. Regis, we will always love you."</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item topstory" >
+	<div id='british boys' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./247704598773595/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/britishboys.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Buiten Westen</span> 
+	<span class='festdate'>19-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''Yesterday we were at Tomorrowland. Because there were no trains, 
+
+we climbed on the roof of a supermarket, slept for 5 hours, took the first 
+
+train to Amsterdam, we spoke to someone on the streets and now we 
+
+are here.''</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='willemloic' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./247699598774095/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/willemloic.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Buiten Westen</span> 
+	<span class='festdate'>19-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''When we're going to a party, we always take one bike for two persons. 
+
+'Why?' Because alone is just alone. Ooh and we're Dutchies, so biking 
+
+is really our thing.''</div></div>
+	<div class='storyfooter'>
+
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='2girls' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./247197802157608/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/2girls.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Buiten Westen</span> 
+	<span class='festdate'>19-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''We've known each other for ages, but we were never friends. This one 
+
+time we went to a local bar and all our friends were wasted. Not wasted 
+
+like ''Aah dude, I can't stand on my feet anymore.'' But wasted like 
+
+''YEAH, let's breakdance on the bar with our pants down while we're 
+
+taking shots from each others belly's.'' So it was like a circus in there. 
+
+We were both hungover and didn't want to drink anymore. From that 
+
+day we talked to each other everyday and made weird snapchats. I 
+
+never thought she would be my best friend. So actually, sobriety 
+
+brought us together, since we didn't drank anymore in that bar.''</div></div>
+	<div class='storyfooter'>
+
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='hotmama' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./245467022330686/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/hotmama.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Buiten Westen</span> 
+	<span class='festdate'>19-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''We received this caravan from an old Romanian gypsy with a golden 
+
+tooth. We stayed with her for 3 weeks and we called her 'hot mama'. 
+
+After the 3 weeks she told us to make a sauna of the caravan and travel 
+
+around with it. We came with the idea to travel to festivals. From that 
+
+moment get asked to be on festivals a lot.''
+
+''Oh wait, let me get my 'hot mama' picture, she is really hot.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='bramfidder' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./245460148998040/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/bramfidder.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''If you had only one day to live, what would you do?''
+<br/>
+''I would organise the biggest island party with all my friends and family. 
+<br/>
+Oh, and everybody has to come skydiving.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='IMG_9660' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./245459825664739/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/IMG_9660.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''We met at Spareribs Express.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='peru' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./245459668998088/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/peru.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''We met in Peru while travelling and we had an amazing time. She 
+
+came to visit the Netherlands, so we came up with the idea to come 
+
+together with the whole group and have a big reunion on this festival.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+		<div class="storyContainer item" >
+	<div id='photographer' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./245459502331438/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/photographer.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''My proudest moment? I'm still waiting for it.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+		<div class="storyContainer item" >
+	<div id='IMG_9672' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./245458895664832/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/IMG_9672.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''I love his happyface.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='marciano' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./245149389029116/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/marciano.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''What do you like most about festivals?''
+	<br/>
+''That I can be Beyonc&eacute; for a while.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='weirdpants' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./244545155756206/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/weirdpants.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''With these pants it feels like I'm wearing nothing. Ultimate freedom.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='liggendmeisje' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./244824232394965/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/liggendmeisje.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''I enjoy.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='manmetbaard' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./244166719127383/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/manmetbaard.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''What advice would you give to festival people?''
+<br/>
+''Party as sober as possible!''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='beard' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./244166485794073/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/beard.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>18hrs Festival</span> 
+	<span class='festdate'>12-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''What do you like most about him?''
+<br/>
+''Definitely his beard''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='3musketiers' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./243026295908092/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/3musketiers.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>All we want</span> 
+	<span class='festdate'>04-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''Do you want to write something in Mijnboekje?''
+<br/>
+''Sure, what's it for?''
+<br/>
+''Every festival we let everyone write in this little notebook, then we post 
+
+every story to our facebookpage. A friend of us came up with the idea, 
+
+he loves writing stories (especially when he's 'wappie' haha) and 
+
+noticed that other people did also. Ever since, he took a notebook to 
+
+every festival. One time he wrote a story for another facebookpage and 
+
+it got over a thousand likes. That's when we thought, maybe we should 
+
+start our own facebookpage.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='jasenfem' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./243754862501902/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/jasenfem.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>All we want</span> 
+	<span class='festdate'>04-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''I did this to him last year. The only difference is that I walked away and 
+
+he wasn't sober. He wasn't very happy about it..''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+	<div class="storyContainer item  topstory" >
+	<div id='Jeannekopie' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./242299542647434/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/Jeannekopie.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Kingsday Strandwest</span> 
+	<span class='festdate'>27-04-14</span> </div>
+	<div class='storytextwrap'>
+	''Two years ago my plan was to study in Leiden and I almost entered a 
+
+student association. But, I spontaneously took the train to Paris and 
+
+that's when the adventure started. I was a street musician in France, 
+
+escaped from modelling work in New York, went back to Paris, starred a 
+
+random weird movie in Italy, applied for university in Berlin, did too 
+
+many dances in Berghain, became a yoga fanatic, went to Nepal, 
+
+climbed mountains, learned yoga technics in weird ashrams, danced 
+
+naked in hidden hippie villages in the mountains, passed my first year in 
+
+philosophy, got accepted for a second study; Chinese and in two weeks 
+
+I'll leave to visit Guatemala. I'm loving this day but it's the biggest 
+
+cultureshock ever. Maaany sunglasses.''</div></div>
+	<div class='storyfooter'>
+	<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %} "></img>
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='IMG_5869' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./242298052647583/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/IMG_5869.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>All we want</span> 
+	<span class='festdate'>04-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''Chilling chilli chickens''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='birthdayboy' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./242297565980965/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/birthdayboy.jpg' %}" /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>All we want</span> 
+	<span class='festdate'>04-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''IT'S MY BIRTHDAY''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	
+		<div class="storyContainer item" >
+	<div id='huib' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./242297335980988/?type=3&theater"><img class='storyimg'
+	src=" {% static 'HOFapp/imgComp/huib.jpg' %}  "/></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>All we want</span> 
+	<span class='festdate'>04-07-14 </span> </div>
+	<div class='storytextwrap'>
+	''I've been travelling in Asia for 4 months. During my trip I visited Bali, 
+
+Lombok, Borneo, Vietnam, Cambodia, Laos, Thailand and Myanmar. 
+
+The local people of Myanmar are the best people I've ever met. The 
+
+people are genuinely kind and interested, without the feeling that they 
+
+need something from you. As you often see in other countries.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	<div class="storyContainer item" >
+	<div id='axelle' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./248603442017044/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/axelle.jpg' %} " /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Mystic Garden</span> 
+	<span class='festdate'>21-06-14 </span> </div>
+	<div class='storytextwrap'>
+	''I just bought these new glasses for only &euro;7,-. It actually cost &euro;10,- but 
+
+he said my smile was worth the missing &euro;3,-. I feel like I just teleported 
+
+from the 80's with these glasses on.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	<div class="storyContainer item" >
+	<div id='backwards' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./242120739331981/?type=3&theater"><img class='storyimg'
+	src="{% static 'HOFapp/imgComp/backwards.jpg' %} "    /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Mystic Garden</span> 
+	<span class='festdate'>21-06-14 </span> </div>
+	<div class='storytextwrap'>
+	'Tell me a weird fact about you?''
+	<br/>
+''I nac klat sdarwkcab''
+<br/>
+''What?''
+<br/>
+''I can talk backwards.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+
+	<div class="storyContainer item" >
+	<div id='IMG_5677' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./241862732691115/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/IMG_5677.jpg' %} "  /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Mystic Garden</span> 
+	<span class='festdate'>21-06-14 </span> </div>
+	<div class='storytextwrap'>
+	''I'm in a group called 'Real men have curves' Do you have something to 
+
+eat? I'm hungry!"</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='S-Agirl' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./240440649499990/?type=3&theater"><img class='storyimg'
+	src= "{% static 'HOFapp/imgComp/S-Agirl.jpg' %} "  /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Mystic Garden</span> 
+	<span class='festdate'>21-06-14 </span> </div>
+	<div class='storytextwrap'>
+	''I went to South-Africa for a few months. The life in South-Africa is 
+
+amazing. I rather live overthere, because I feel more in touch with the 
+
+people.''
+<br/>
+''Are you South-African?''
+<br/>
+''No, but many South-African people don't have anything, despite of that 
+
+they still give everything they have. That is something really beautiful.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	
+	<div class="storyContainer item" >
+	<div id='joshua' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./240439649500090/?type=3&theater"><img class='storyimg' 
+	src="{% static 'HOFapp/imgComp/joshua.jpg' %} " /></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Mystic Garden</span> 
+	<span class='festdate'>21-06-14 </span> </div>
+	<div class='storytextwrap'>
+	''What do you do?''
+<br/>
+''I organise parties''
+<br/>
+''What separates your party from all the other parties?''
+<br/>
+''Nowadays, people are very obsessed by social media, it is almost a 
+
+religion for them. At the party I host, instead of being on their 
+
+smartphones I trigger them to talk in real life. In that way they can make 
+
+friends. Real friends.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+	
+	<div class="storyContainer item" >
+	<div id='USAgirls' class='storywrap '>
+	<a href="https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-
+
+2207520000.1430501804./240438289500226/?type=3&theater"><img class='storyimg'
+	src="{% static 'HOFapp/imgComp/USAgirls.jpg' %}"/></a><!-- PICTUREEE -->
+	<div class='storyinfo'>
+	<span class='festinfo'>Mystic Garden</span> 
+	<span class='festdate'>21-06-14 </span> </div>
+	<div class='storytextwrap'>
+	''We are from the United States''
+	<br/>
+''What is the biggest difference between the festivals in the US and 
+
+here?''
+<br/>
+''We love the festivals over here, people are very down to earth and 
+
+nobody is 'grinding'.''
+<br/>
+''Oh, and everybody has their clothes on.''</div></div>
+	<div class='storyfooter'>
+	
+	by Tessa Dekeukeleire</div>
+	</div>
+	
+
+	
+	
+
+	
+	
+	
+	</div>
+	
+	
+	
+	<!-- scroll location -->
+	
+	
+	
+	
+	<footer style="clear:both"id='footer'>
+	<ul class='footertext' style="list-style-type:none">
+	<li class='about footertext'> about </li>
+	<li class='contact footertext'> contact </li>
+	<li> <a class='footertext' color="white" href='https://www.facebook.com/humansoffestivals?fref=ts'>follow us on Facebook</a></li>
+	<li><a  class='footertext' color="white" href='https://instagram.com/humansoffestivals/'>follow us on Instagram</a> </li>
+	<li id='footerlogowrap'><img class='logoBottom' src="{% static 'HOFapp/LogoHOF2TopBar.png' %}" width='80px'><img class='logoBottom' src="{% static 'HOFapp/LogoHOF2.png' %}" width='80px'></li>
+	</ul>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<span id='copyright'> &#169; copyright <b>Julian Schoep 2015 </b><br/><br/> hosted by <a id='mijndomein' href="https://www.mijndomein.nl/?rf=20362"> mijndomein.nl </a> </span>
+	</footer>
+
+</div>
+
+<div class='goToTop'> </div>
+
+
+
+
+</div>
+</body>
+
+
+
+
+
+
+</html>
