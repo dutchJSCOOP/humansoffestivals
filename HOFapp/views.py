@@ -5,4 +5,4 @@ from HOFapp.models import Post, CalendarItem
 def index(request):
 	posts = Post.objects.all()
 	calendarItems = CalendarItem.objects.all()
-	return render(request, 'HOFapp/index.html', {'posts':posts}, {'calendarItems':calendarItems})
+	return render(request, 'HOFapp/index.html', {'posts':posts, 'calendarItems':calendarItems})
