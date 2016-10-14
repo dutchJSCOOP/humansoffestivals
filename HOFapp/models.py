@@ -19,7 +19,7 @@ class Post(models.Model):
 class CalendarItem(models.Model):
 	text = models.Textfield()
 	facebookLink = models.TextField()
-	date_DDMM = models.models.TextField()
+	date_DDMM = models.TextField()
 	def __str__(self):
 		return self.text
 		
