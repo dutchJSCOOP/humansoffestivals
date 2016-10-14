@@ -284,6 +284,8 @@ $(document).ready(function(){
 	<div id='festDivTitle'>UPCOMING IN 2015</div>
 	<div class='storytextwrap' id='festDivText'>
 	<ul style="list-style-type:none">
+	{% for item in calendarItems %}
+		<li><a class='festivalLink' href='{{item.facebookLink}}'>{{item.text}} <span class='festDivDate'> {{item.date(DD-MM)}} </span></a></li><br/>
 		<li><a class='festivalLink' href='https://www.facebook.com/events/648290115254561/'> Rollende keukens <span class='festDivDate'> 13-05 </span></a></li><br/>
 		<li><a class='festivalLink' href='https://www.facebook.com/events/491115671026727/'>			Fierce Fashion Festival <span class='festDivDate'> 16-05 </span></a></li><br/>
 		<li><a class='festivalLink' href='https://www.facebook.com/events/916691321708476/'>			Wicked Jazz Sounds <span class='festDivDate'> 16-05 </span></a></li><br/>
@@ -300,8 +302,11 @@ $(document).ready(function(){
 		<li><a class='festivalLink' href='https://www.facebook.com/events/1535386156675539/'>			Gay pride <span class='festDivDate'> 31-07 </span></a></li><br/>
 		<li><a class='festivalLink' href='https://www.facebook.com/events/271881219673983/'>			Sziget <span class='festDivDate'> 10-08 </span></a></li><br/>
 		<li><a class='festivalLink' href='https://www.facebook.com/events/1444159112542253/'>			Straf_Werk <span class='festDivDate'> 22-08 </span></a></li><br/>
+		
 		<li><a class='festivalLink' style='border-bottom: 0px solid white; padding-bottom: 5px;' href='https://www.facebook.com/events/1629551180613232/'>			Wonderland <span class='festDivDate'> 29-08 </span></a></li><br/>
+	{% endfor %}
 	</ul>
+	
 	</div></div></div>
 	
 
@@ -424,20 +429,21 @@ by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
         
 
 <div class="storyContainer item topstory" >
-<div id='verknipt3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
-<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./371752836368770/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg' 
-src="{% static 'HOFapp/imgComp/verknipt3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
-<div class='storyinfo'>
-<span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
-<span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
-<div class='storytextwrap'>
+	<div id='verknipt3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
+		<a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./371752836368770/?type=3&theater'> <!-- copy paste hier je fb linkje -->
+		<img class='storyimg' src="{% static 'HOFapp/imgComp/verknipt3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+		<div class='storyinfo'>
+			<span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
+			<span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
+			<div class='storytextwrap'>
 
-    ''Someone once asked me what my mission in life is. At that moment I felt flattered because I realized that I do have a mission in life. Whenever I walk at a festival I try to give all the people I meet compliments and praise them about the things that make them unique. The one thing I always say to everyone is 'just keep smiling'. What's crazy is that now I actually get recognized at festivals and parties as the girl who always gives sweet compliments. I also get Facebook messages of people who give me lovely comments because my compliments made them happy. So I guess my mission is to make people smile and feel precious. Who doesn’t deserve to feel like that?''
-</div></div>
-<div class='storyfooter'>
-<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %}"></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
-by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
+		''Someone once asked me what my mission in life is. At that moment I felt flattered because I realized that I do have a mission in life. Whenever I walk at a festival I try to give all the people I meet compliments and praise them about the things that make them unique. The one thing I always say to everyone is 'just keep smiling'. What's crazy is that now I actually get recognized at festivals and parties as the girl who always gives sweet compliments. I also get Facebook messages of people who give me lovely comments because my compliments made them happy. So I guess my mission is to make people smile and feel precious. Who doesn’t deserve to feel like that?''
+			</div>
+		</div>
+	<div class='storyfooter'>
+		<img class='storylabel' src="{% static 'HOFapp/topStoryLabel.png' %}"></img> <!--DEZE REGEL ALLEEN ALS HET EEN TOP STORY IS -->
+		by Thomas Dijkstra
+	</div> <!-- fix hier de naam van de foto maker -->
 </div>
         
    
