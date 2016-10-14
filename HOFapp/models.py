@@ -8,7 +8,7 @@ class Post(models.Model):
 	facebookLink = models.TextField()
 	postID = models.TextField()
 	festivalName = models.TextField()
-	festivalDate(DD-MM-YY) = models.TextField()
+	festivalDate_DDMMYY = models.TextField()
 	poster = models.TextField()
 	date_time = models.DateTimeField(auto_now=True)
 	photo = models.ImageField(null=True, blank =True)
@@ -19,7 +19,7 @@ class Post(models.Model):
 class CalendarItem(models.Model):
 	text = models.Textfield()
 	facebookLink = models.TextField()
-	date(DD-MM) = models.models.TextField()
+	date_DDMM = models.models.TextField()
 	def __str__(self):
 		return self.text
 		

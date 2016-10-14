@@ -285,7 +285,7 @@ $(document).ready(function(){
 	<div class='storytextwrap' id='festDivText'>
 	<ul style="list-style-type:none">
 	{% for item in calendarItems %}
-		<li><a class='festivalLink' href='{{item.facebookLink}}'>{{item.text}} <span class='festDivDate'> {{item.date(DD-MM)}} </span></a></li><br/>
+		<li><a class='festivalLink' href='{{item.facebookLink}}'>{{item.text}} <span class='festDivDate'> {{item.date_DDMM}} </span></a></li><br/>
 		<li><a class='festivalLink' href='https://www.facebook.com/events/648290115254561/'> Rollende keukens <span class='festDivDate'> 13-05 </span></a></li><br/>
 		<li><a class='festivalLink' href='https://www.facebook.com/events/491115671026727/'>			Fierce Fashion Festival <span class='festDivDate'> 16-05 </span></a></li><br/>
 		<li><a class='festivalLink' href='https://www.facebook.com/events/916691321708476/'>			Wicked Jazz Sounds <span class='festDivDate'> 16-05 </span></a></li><br/>
@@ -330,7 +330,7 @@ $(document).ready(function(){
 src='{{post.photo.url}}' /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> {{post.festivalName}}</span> <!-- HIER LOCATIE -->
-<span class='festdate'>{{post.festivalDate}} </span> </div> <!-- HIER DATUM -->
+<span class='festdate'>{{post.festivalDate_DDMMYY}} </span> </div> <!-- HIER DATUM -->
 <div class='storytextwrap'>
 
     {{post.text|linebreaksbr}}
