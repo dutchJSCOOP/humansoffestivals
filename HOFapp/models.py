@@ -17,7 +17,7 @@ class Post(models.Model):
 		return self.postID
 
 class CalendarItem(models.Model):
-	text = models.Textfield()
+	text = models.TextField()
 	facebookLink = models.TextField()
 	date_DDMM = models.TextField()
 	def __str__(self):
