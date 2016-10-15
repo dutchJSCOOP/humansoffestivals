@@ -54,6 +54,8 @@
 $(document).ready(function(){
 
 	
+	
+	
 	//filter ISOTOPE 
 	$(".filterButton").click(function(){
 	
@@ -141,7 +143,7 @@ $(document).ready(function(){
 		
 	
 	
-	$("#container").imagesLoaded( showContainer());
+	//$("#container").imagesLoaded( showContainer());
 	
 
 
@@ -152,13 +154,15 @@ $(document).ready(function(){
 <script>
 	
 	function isotope() {
-  
+		
 		$('#container').isotope({
 			itemSelector: '.item',
 			masonry: {
 				isFitWidth: true
 			}
 		});
+		showContainer();
+		topStoryLabel();
 		
 	};
 
@@ -173,6 +177,19 @@ $(document).ready(function(){
 		});
 		
 	};
+	
+	
+	function topStoryLabel(){
+		var topStories = document.getElementsByClassName("topstory");
+		for(var i=0;i<topStories.length;i++){
+			var block = topStories[i].lastElementChild;
+			block.childNodes[1].className += " isTopStory";
+		};
+		
+	
+	
+	}
+	
 </script>
 
 
@@ -244,13 +261,13 @@ $(document).ready(function(){
 	What about us? Please let us introduce ourselves. We're Jesse,
 	Tessa and Miran, three youngsters trying to figure out where to fit 
 	in in this world full of madness and hipsters. We're from the 
-	capital known for its weeds, hookers and festivals: Lovely 
+	capital known for its weed, hookers and festivals: Lovely 
 	Amsterdam. With a passion for writing and photography we're
-	inspired the humans of festivals. Ooh and we're inspired
+	inspired by the humans of festivals. Ooh and we're inspired
 	by you too, yeah you.
 <br/><br/>
  Festivals nowadays are all about integrity, as are the persons we
- wish to portrait. You're more than welcome to meet the person 
+ wish to portrait. You are more than welcome to meet the person 
  behind the superficial. You're welcome to meet Humans of Festivals. 
  So please, <br/><i> tell me baby, what's your story? </i>
 	</div>
@@ -280,65 +297,54 @@ $(document).ready(function(){
 
 	
 	<div class="storyContainer item dontFilter" id='festDiv'>
-	<div  class='storywrap '>
-	<div id='festDivTitle'>UPCOMING IN 2015</div>
-	<div class='storytextwrap' id='festDivText'>
-	<ul style="list-style-type:none">
-	{% for item in calendarItems %}
-		<li><a class='festivalLink' href='{{item.facebookLink}}'>{{item.text}} <span class='festDivDate'> {{item.date_DDMM}} </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/648290115254561/'> Rollende keukens <span class='festDivDate'> 13-05 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/491115671026727/'>			Fierce Fashion Festival <span class='festDivDate'> 16-05 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/916691321708476/'>			Wicked Jazz Sounds <span class='festDivDate'> 16-05 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/thuishaven.am?fref=ts'> Thuishaven <span class='festDivDate'> 24-05 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/1080474708636211/?fref=ts'>			Open air amsterdam <span class='festDivDate'> 06-06 </span></a></li><br/>
-		<li><a class='festivalLink' href=''>															Berlijn <span class='festDivDate'> 11-06 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/1374930789492790/'> Zandbak Festival <span class='festDivDate'> 13-06 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/410632675756790/'>			All we want <span class='festDivDate'> 	03-07 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/928383437195574/'>			Verknipt Festival <span class='festDivDate'> 04-07 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/1543976729216688/'>			BuitenWesten <span class='festDivDate'> 18-07</span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/788394691254536/'>			Thuishaven op reis <span class='festDivDate'> 24-07 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/1529336827332351/'>			Amsterdam live on stage <span class='festDivDate'> 25-07 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/1567496840133075/'>			Damaris <span class='festDivDate'> 26-07 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/1535386156675539/'>			Gay pride <span class='festDivDate'> 31-07 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/271881219673983/'>			Sziget <span class='festDivDate'> 10-08 </span></a></li><br/>
-		<li><a class='festivalLink' href='https://www.facebook.com/events/1444159112542253/'>			Straf_Werk <span class='festDivDate'> 22-08 </span></a></li><br/>
+		<div  class='storywrap '>
+			<div id='festDivTitle'>UPCOMING IN 2015</div>
+			<div class='storytextwrap' id='festDivText'>
+				<ul style="list-style-type:none" class='festDivList'>
+				{% for item in calendarItems %}
+					<li>
+						<a class='festivalLink' href='{{item.facebookLink}}'>{{item.text}} <span class='festDivDate'> {{item.date_DDMM}} </span></a><br/>
+					</li>
+					
+				{% endfor %}	
 		
-		<li><a class='festivalLink' style='border-bottom: 0px solid white; padding-bottom: 5px;' href='https://www.facebook.com/events/1629551180613232/'>			Wonderland <span class='festDivDate'> 29-08 </span></a></li><br/>
-	{% endfor %}
-	</ul>
+				</ul>
+			</div>
+		</div>
+	</div>
 	
-	</div></div></div>
-	
+
+
+
+<script>
+
+
+</script>
 
 
 
 
 
-
-
-
-
-	<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!NEW STORIES HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 
         
 {% for post in posts %}
 
-<div class="storyContainer item {{post.identifiers}}" >
-<div id='{{post.postID}}' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
-<a href='{{post.facebookLink}}'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg' 
-src='{{post.photo.url}}' /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
-<div class='storyinfo'>
-<span class='festinfo'> {{post.festivalName}}</span> <!-- HIER LOCATIE -->
-<span class='festdate'>{{post.festivalDate_DDMMYY}} </span> </div> <!-- HIER DATUM -->
-<div class='storytextwrap'>
-
-    {{post.text|linebreaksbr}}
-</div></div>
-<div class='storyfooter'>
-
-by {{post.poster}}</div> <!-- fix hier de naam van de foto maker -->
-</div>
+	<div class="storyContainer item {{post.identifiers}}" >
+		<div id='{{post.postID}}' class='storywrap '> 
+			<a href='{{post.facebookLink}}'><img class='storyimg' src='{{post.photo.url}}' /></a>
+			<div class='storyinfo'>
+				<span class='festinfo'> {{post.festivalName}}</span>
+				<span class='festdate'>{{post.festivalDate_DDMMYY}} </span> 
+			</div> 
+			<div class='storytextwrap'>
+				{{post.text|linebreaksbr}}
+			</div>
+		</div>
+		<div class='storyfooter'>
+			<div class='storylabel' ></div>
+			by {{post.poster}}
+		</div> 
+	</div>
         
 
 {% endfor %}
