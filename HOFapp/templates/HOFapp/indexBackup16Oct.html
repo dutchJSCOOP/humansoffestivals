@@ -55,12 +55,7 @@ $(document).ready(function(){
 
 	
 	$(function() {
-		$("img.lazy").lazyload({
-			effect : "fadeIn",
-			failure_limit : 1,
-			threshold : 1000
-	
-		});
+		$("img.lazy").lazyload();
 	});
 	
 	//filter ISOTOPE 
@@ -159,22 +154,16 @@ $(document).ready(function(){
  
 </script>
 <script>
-	function calcHeight(height, width){
-		
-		return height * (310/width);
-	
-	};
-	
 	
 	function isotope() {
-		
+		showContainer();
 		$('#container').isotope({
 			itemSelector: '.item',
 			masonry: {
 				isFitWidth: true
 			}
 		});
-		showContainer();
+		
 		topStoryLabel();
 		
 	};
@@ -183,7 +172,7 @@ $(document).ready(function(){
 	
 	function showContainer(){
 		$("#container").isotope('layout');
-		$(".loading").fadeTo(100, 0, function(){
+		$(".loading").fadeTo(500, 0, function(){
 		
 		$("#container").fadeTo("fast", 1);
 		
@@ -345,7 +334,7 @@ $(document).ready(function(){
 	<div class="storyContainer item {{post.identifiers}}" >
 		<div id='{{post.postID}}' class='storywrap '> 
 												
-			<a href='{{post.facebookLink}}'><img class='storyimg lazy' data-original='{{post.photo.url}}' width="310" height='calcHeight({{post.photo.height}}, {{post.photo.width}})'/></a>
+			<a href='{{post.facebookLink}}'><img class='storyimg lazy' data-original='{{post.photo.url}}' width="310"/></a>
 			<div class='storyinfo'>
 				<span class='festinfo'> {{post.festivalName}}</span>
 				<span class='festdate'>{{post.festivalDate_DDMMYY}} </span> 
@@ -369,8 +358,8 @@ $(document).ready(function(){
 <div class="storyContainer item " >
 <div id='Verknipt6' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./373262442884476/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='464' width='310' 
-data-original="{% static 'HOFapp/imgComp/verknipt6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/verknipt6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
@@ -389,8 +378,8 @@ by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >     
 <div id='verknipt1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./372576772953043/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='465' width='310' 
-data-original="{% static 'HOFapp/imgComp/verknipt1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/verknipt1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
@@ -409,8 +398,8 @@ by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Verknipt5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./372311112979609/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Verknipt5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Verknipt5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
@@ -431,8 +420,8 @@ by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='verknipt12' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486670./371752836368770/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/verknipt12.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/verknipt12.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Verknipt Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>04-07-15 </span> </div> <!-- HIER DATUM -->
@@ -470,8 +459,8 @@ by Thomas Dijkstra</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >    
 <div id='dezon6' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./358167031060684/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/dezon6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
 <span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
@@ -492,8 +481,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " > 
 <div id='dezon9' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./357862337757820/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/dezon9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
 <span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
@@ -513,8 +502,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
     <div class="storyContainer item " >
 <div id='Chateau 5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/351336418410412/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='Chateau Techno'> LOCATIE/FEEST VAN DE STORY</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -530,8 +519,8 @@ by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Chateau 6' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/353185208225533/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Chateau Techno </span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -547,8 +536,8 @@ by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
   <div class="storyContainer item topstory" >  
 <div id='Chateau 11' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/354352824775438/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 11.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 11.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Chateau 11</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -566,8 +555,8 @@ by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
     <div class="storyContainer item " >
 <div id='Chateau 10' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/355090991368288/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 10.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 10.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Chateau Techno </span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -584,8 +573,8 @@ by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Chateau 12' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/356450221232365/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 12.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 12.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Chateau Techno</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -600,8 +589,8 @@ by Mick van DijkT</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Chateau 9' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/356471331230254/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Chateau Techno</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -617,8 +606,8 @@ by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
     <div class="storyContainer item topstory" >
 <div id='Chateau 1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/356471724563548/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='465' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Chateau 1</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -634,8 +623,8 @@ by Mick van Dijk </div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Chateau 7' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/359310270946360/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Chateau 7</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -651,8 +640,8 @@ by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Chateau 3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/359318874278833/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Chateau 3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Chateau 3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Chateau Techno</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -669,8 +658,8 @@ by Mick van Dijk</div> <!-- fix hier de naam van de foto maker -->
     <div class="storyContainer item " >
 <div id='Zandbak2' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/362585370618850/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -687,8 +676,8 @@ by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >    
 <div id='Zandbak13' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/362934833917237/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak13.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak13.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -704,8 +693,8 @@ by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak11' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/363080913902629/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak11.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak11.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -721,8 +710,8 @@ by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/363594267184627/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -739,8 +728,8 @@ by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item topstory" >
 <div id='Zandbak19' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/363692600508127/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak19.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak19.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -760,8 +749,8 @@ by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak4' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/363692600508127/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -777,8 +766,8 @@ by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak20' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/364375453773175/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak20.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak20.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -794,8 +783,8 @@ by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/365441813666539/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -812,8 +801,8 @@ by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak6' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/365924686951585/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak6.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -831,8 +820,8 @@ by Femke Maas</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak22' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/368096630067724/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak22.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak22.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -850,8 +839,8 @@ by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak9' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/369493093261411/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -869,8 +858,8 @@ by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='Zandbak7' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/370064653204255/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Zandbak7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Zandbak7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Zandbak Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 13-06-15 </span> </div> <!-- HIER DATUM -->
@@ -886,8 +875,8 @@ by Loek Hennipman</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item " >
 <div id='OpenAir5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/a.240436896167032.1073741828.222118867998835/361489864061734/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/OpenAir5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/OpenAir5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Amsterdam Open Air</span> <!-- HIER LOCATIE -->
 <span class='festdate'> 06-06-15 </span> </div> <!-- HIER DATUM -->
@@ -908,8 +897,8 @@ by Thuynga Phan</div> <!-- fix hier de naam van de foto maker -->
        <div class="storyContainer item topstory" >
 <div id='dezon8' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./357604887783565/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/dezon8.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon8.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
 <span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
@@ -930,8 +919,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
   <div class="storyContainer item " >      
 <div id='dezon2' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./356040171273370/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/dezon2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
 <span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
@@ -956,8 +945,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
 <div class="storyContainer item topstory" >
 <div id='dezon3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444937271./356398247904229/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/dezon3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
 <span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
@@ -982,8 +971,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
   <div class="storyContainer item " >  
 <div id='dezon1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444486674./355759381301449/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/dezon1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/dezon1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> De Zon</span> <!-- HIER LOCATIE -->
 <span class='festdate'>24-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1009,8 +998,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
    <div class="storyContainer item " >     
 <div id='WickedJazz7' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444485420./356470237897030/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/WickedJazz7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz7.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Wicked Jazz Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1032,8 +1021,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
  <div class="storyContainer item " >       
 <div id='WickedJazz3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./356470101230377/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/WickedJazz3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Wicked Jazz festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1058,8 +1047,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
         <div class="storyContainer item topstory" >
 <div id='WickedJazz5' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./355940474616673/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/WickedJazz5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz5.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Wicked Jazz festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1079,8 +1068,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
   <div class="storyContainer item " > 
 <div id='WickedJazz2' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./355091228034931/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/WickedJazz2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Wicked Jazz festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1107,8 +1096,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
    <div class="storyContainer item " >     
 <div id='WickedJazz1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./354862004724520/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/WickedJazz1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Wicked Jazz festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1134,8 +1123,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
   <div class="storyContainer item " >     
 <div id='WickedJazz4' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481895./351332675077453/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/WickedJazz4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/WickedJazz4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Wicked Jazz Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>16-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1162,8 +1151,8 @@ by Wicked Jazz Festival</div> <!-- fix hier de naam van de foto maker -->
    <div class="storyContainer item " > 
 <div id='Vrijland15' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./350934811783906/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Vrijland15.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland15.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1188,8 +1177,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
    <div class="storyContainer item " >    
 <div id='Vrijland9' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./349433441934043/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Vrijland9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland9.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1212,8 +1201,8 @@ by Vrijland</div> <!-- fix hier de naam van de foto maker -->
     <div class="storyContainer item " >    
 <div id='Vrijland8' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./349423465268374/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Vrijland8.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland8.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1234,8 +1223,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
  <div class="storyContainer item " >     
 <div id='Vrijland4' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./348578605352860/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Vrijland4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland4.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1259,8 +1248,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
  <div class="storyContainer item " >       
 <div id='Vrijland3' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./348423368701717/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Vrijland3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland3.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1282,8 +1271,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
  <div class="storyContainer item " >       
 <div id='Vrijland2' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./348423368701717/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Vrijland2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland2.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
@@ -1307,8 +1296,8 @@ by Tessa Dekeukeleire</div> <!-- fix hier de naam van de foto maker -->
                <div class="storyContainer item topstory" >
 <div id='Vrijland1' class='storywrap '> <!-- als fotobestand = xxxx.jpg dan id = xxxx.    -->
 <a href='https://www.facebook.com/humansoffestivals/photos/pb.222118867998835.-2207520000.1444481896./348103482067039/?type=3&theater'> <!-- copy paste hier je fb linkje -->
-<img class='storyimg lazy' height='206.5' width='310' 
-data-original="{% static 'HOFapp/imgComp/Vrijland1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
+<img class='storyimg' 
+src="{% static 'HOFapp/imgComp/Vrijland1.jpg' %}" /></a><!-- hier je foto naam (waar xxxx staat) wel met de juiste bestands type-->
 <div class='storyinfo'>
 <span class='festinfo'> Vrijland Festival</span> <!-- HIER LOCATIE -->
 <span class='festdate'>05-05-15 </span> </div> <!-- HIER DATUM -->
