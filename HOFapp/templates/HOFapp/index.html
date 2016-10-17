@@ -316,7 +316,7 @@ $(document).ready(function(){
 				<ul style="list-style-type:none" class='festDivList'>
 				{% for item in calendarItems %}
 					<li>
-						<a class='festivalLink' href='{{item.facebookLink}}'>{{item.text}} <span class='festDivDate'> {{item.date_DDMM}} </span></a><br/>
+						<a class='festivalLink' href='{{item.facebookLink}}'>{{item.festivalName}} <span class='festDivDate'> {{item.festivalDate|date:"d-m" }} </span></a><br/>
 					</li>
 					
 				{% endfor %}	
@@ -348,7 +348,7 @@ $(document).ready(function(){
 			<a href='{{post.facebookLink}}'><img class='storyimg lazy' data-original='{{post.photo.url}}' width="310" height='calcHeight({{post.photo.height}}, {{post.photo.width}})'/></a>
 			<div class='storyinfo'>
 				<span class='festinfo'> {{post.festivalName}}</span>
-				<span class='festdate'>{{post.festivalDate_DDMMYY}} </span> 
+				<span class='festdate'>{{post.festivalDate|date:"d-m-y" }} </span> 
 			</div> 
 			<div class='storytextwrap'>
 				{{post.text|linebreaksbr}}

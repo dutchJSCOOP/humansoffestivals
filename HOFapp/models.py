@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+import datetime  
 # Create your models here. HUMANSOFFESTIVALS
 
 class Post(models.Model):
@@ -8,18 +8,17 @@ class Post(models.Model):
 	facebookLink = models.TextField()
 	postID = models.TextField()
 	festivalName = models.TextField()
-	festivalDate_DDMMYY = models.TextField()
+	festivalDate = models.DateField( default=datetime.date.today)
 	poster = models.TextField()
-	date_time = models.DateTimeField(auto_now=True)
 	photo = models.ImageField(null=True, blank =True)
 	identifiers = models.TextField()
 	def __str__(self):
 		return self.postID
 
 class CalendarItem(models.Model):
-	text = models.TextField()
+	festivalName = models.TextField()
 	facebookLink = models.TextField()
-	date_DDMM = models.TextField()
+	festivalDate= models.DateField( default=datetime.date.today)
 	def __str__(self):
-		return self.text
+		return self.festivalName
 		
